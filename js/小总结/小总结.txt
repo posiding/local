@@ -1,0 +1,6 @@
+-----2015.007.14-----
+1.jquery在1.9以后废弃了live函数,需要用on来代替;
+2.未来元素在使用on的时候需要注意的是,情景如下:
+  当<div><button></button></div>为未来元素的时候，而需要帮button绑定事件；不能使用$("div").on("click","button",function(){});而是应该使用已有元素如:body
+  像：$("body").on("click","button",function(){});
+3.IOS下如果使用click事件，记得加上css{cursor:pointer;};否则不起作用

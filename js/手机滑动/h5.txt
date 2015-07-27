@@ -1,0 +1,39 @@
+				obj.addEventListener('touchmove', function(event) {
+				// 如果这个元素的位置内只有一个手指的话
+				if (event.targetTouches.length == 1) {
+					var touch = event.targetTouches[0];
+					var spanX = touch.pageX - pressX;
+					var spanY = touch.pageY - pressY;
+					var direct = "none";         
+						//水平方向
+					if (Math.abs(spanX) > Math.abs(spanY)) {
+							if (spanX > 0) {
+							   //向右
+								if(li_index !=0){																	
+									window.location.href= $(li[li_index-1]).children("a").attr("href");
+								}						
+								  
+								//do right function
+							} else {
+								//alert('left');
+								if(li_index !=4){																	
+									window.location.href= $(li[li_index+1]).children("a").attr("href");
+								}								  
+								//do left function
+							}				   
+						}
+						}
+					
+			}, false);				
+		
+			   obj.addEventListener('touchstart', function(event) {
+        // 如果这个元素的位置内只有一个手指的话
+						if (event.targetTouches.length == 1) {
+							var touch = event.targetTouches[0];
+							// 把元素放在手指所在的位置
+							pressX = touch.pageX;
+							pressY = touch.pageY;
+
+							touchStart.value = pressX + ';' + pressY;
+						}
+					}, false);
